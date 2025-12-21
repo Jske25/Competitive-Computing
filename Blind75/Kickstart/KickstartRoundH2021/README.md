@@ -1,1 +1,0 @@
-# Kickstart-Round-H-Problem1
