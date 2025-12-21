@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+ 
+    int t; cin >> t;
+    while (t--) {
+        int n; cin >> n;
+        vector<int> v(n);
+        vector<int> s2;
+        vector<int> final1;
+        vector<int> liked;
+        vector<int> disliked;
+        vector<int> final2(n);
+        for (int x = 0; x < n; x++) {
+            int temp; cin >> temp;
+            v[temp-1] = x;
+            s2.push_back(temp);
+        }
+        string s; cin >> s;
+        for (int x = 0; x < s.size(); x++) {
+            if (s.at(x) == '0') {
+                disliked.push_back(s2.at(x));
+            }
+            else {
+                liked.push_back(s2.at(x));
+            }
+        }
+        sort(disliked.begin(), disliked.end());
+        sort(liked.begin(), liked.end());
+ 
+        for (int x = 0; x < disliked.size(); x++) {
+            final1.push_back(disliked.at(x));
+        }
+ 
+        for (int x = 0; x < liked.size(); x++) {
+            final1.push_back(liked.at(x));
+        }
+        for (int x = 0; x < final1.size(); x++) {
+            final2.at(v[final1.at(x)-1]) = x+1;
+        }
+        for (int x = 0; x < final2.size(); x++) {
+            cout << final2.at(x) << " ";
+        }
+ 
+        cout << endl;
+        
+    }
+}
